@@ -12,14 +12,200 @@
     <h1>Guía para la Api Rest</h1>
 
     <div class="container">
-        <p>Base url: '/api/v1/'</p>
+        <p>Base url: '/api'</p>
 
         <div class="wrapper">
             <h2>GETs</h2>
+
             <div class="item">
-                <h5>Url</h5>
-                <p>/</p>
+                <h3>/app_authorization</h3>
+                <h4>Descripción</h4>
+                <p class="description">Endpoint que sirve para autenticar el uso del App.</p>
+                <div class="params">
+                    <h5>Params:</h5>
+                    <ul>
+                        <li>
+                            <span>clientId:</span>
+                            <span>xxx</span>
+                        </li>
+                        <li>
+                            <span>clientSecret:</span>
+                            <span>xxx</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="params">
+                    <h5>Return 200:</h5>
+                    <code>
+                        {
+                            "error": false,
+                            "message": "Success",
+                            "code": "VALID",
+                            "access_token": "xxx"
+                        }
+                    </code>
+                    <h5>Return 400:</h5>
+                    <code>
+                        {
+                            "error": true,
+                            "message": "security.invalidCredentials",
+                            "code": "INVALID_TOKEN",
+                            "access_token": ""
+                        }
+                    </code>                    
+                </div>
             </div>
+
+            <div class="item">
+                <h3>/authentication_user</h3>
+                <h4>Descripción</h4>
+                <p class="description">Endpoint que sirve para realizar el login de usuario.</p>
+                <div class="params">
+                    <h5>Params:</h5>
+                    <ul>
+                        <li>
+                            <span>userName:</span>
+                            <span>xxx</span>
+                        </li>
+                        <li>
+                            <span>password:</span>
+                            <span>xxx</span>
+                        </li>
+                        <li>
+                            <span>header:</span>
+                            <span>{Authorization : Bearer xxxx}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="params">
+                    <h5>Return 200:</h5>
+                    <code>
+                        {
+                            "error": false,
+                            "message": "Success",
+                            "code": "VALID",
+                            "access_token": "xxx"
+                        }
+                    </code>
+                    <h5>Return 400:</h5>
+                    <code>
+                        {
+                            "error": true,
+                            "message": "security.invalidCredentials",
+                            "code": "INVALID_TOKEN",
+                            "access_token": ""
+                        }
+                    </code>                    
+                </div>
+            </div>
+
+            <div class="item">
+                <h3>/get_user_info</h3>
+                <h4>Descripción</h4>
+                <p class="description">Obtiene la información del usuario logeado mediante el Token.</p>
+                <div class="params">
+                    <h5>Params:</h5>
+                    <ul>
+                        <li>
+                            <span>header:</span>
+                            <span>{Authorization : Bearer xxxx}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="params">
+                    <h5>Return 200:</h5>
+                    <code>
+                        {
+                            "id": 000,
+                            "lastName": "xxx",
+                            "name": "Test",
+                            "country": {
+                                "id": 0
+                            },
+                            "error": false,
+                            "message": ""
+                        }
+                    </code>
+                    <h5>Return 400:</h5>
+                    <code>
+                        {
+                            "error": true,
+                            "message": "INVALID_TOKEN",
+                            "id": 0,
+                            "lastName": "",
+                            "name": "",
+                            "country": {
+                                "id": 0
+                            }
+                        }
+                    </code>                    
+                </div>
+            </div>
+
+            <div class="item">
+                <h3>/search_restaurants</h3>
+                <h4>Descripción</h4>
+                <p class="description">Pasando coordenasdas devuelve los restaurantes más cercanos.</p>
+                <div class="params">
+                    <h5>Params:</h5>
+                    point : req.query.point,
+                    country : req.query.country, 
+                    max : req.query.max, 
+                    offset: req.query.offset, 
+                    sort : req.query.sort, 
+                    count : req.query.count, 
+                    fields : req.query.fields
+                    <ul>
+                        <li>
+                            <span>point:</span>
+                            <span>xxx,xxx required!</span>
+                        </li>
+                        <li>
+                            <span>country:</span>
+                            <span>xxx required!</span>
+                        </li>
+                        <li>
+                            <span>max:</span>
+                            <span>xxx</span>
+                        </li>
+                        <li>
+                            <span>offset:</span>
+                            <span>xxx</span>
+                        </li>
+                        <li>
+                            <span>sort:</span>
+                            <span>xxx</span>
+                        </li>
+                        <li>
+                            <span>count:</span>
+                            <span>xxx</span>
+                        </li>
+                        <li>
+                            <span>fields:</span>
+                            <span>xxx</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="params">
+                    <h5>Return 200:</h5>
+                    <code>
+                        {
+                            "error": false,
+                            "message": "",
+                            "restaurants": [...]
+                        }
+                    </code>
+                    <h5>Return 400:</h5>
+                    <code>
+                        {
+                            "error": true,
+                            "message": "",
+                            "restaurants": []
+                        }
+                    </code>                    
+                </div>
+            </div>
+
         </div>
     
         <div class="wrapper">
