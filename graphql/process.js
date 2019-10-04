@@ -293,9 +293,10 @@ const searchRestaurants = (args, context) => {
 
 }
 
+
 module.exports = {
     appAuthorization,
     authenticationUser,
     getUserInfo,
-    searchRestaurants
+    searchRestaurants,
 }

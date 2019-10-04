@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const express_graphql = require('express-graphql');
+const cors = require('cors');
+
+app.use(cors());
 
 // Esquemas
 const { schema } = require('./graphql/schema');
@@ -28,6 +31,6 @@ app.use('/graphql', express_graphql((req) => ({
     graphiql: true
 })));
 
-app.listen(3000, () => {
-    console.log('The app run in http://localhost:3000');    
+app.listen(4000, () => {
+    console.log('The app run in http://localhost:4000');    
 })

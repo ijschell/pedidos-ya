@@ -3,9 +3,9 @@ const { buildSchema } = require('graphql');
 const schema = buildSchema(`
 
     type Query{
+        get_user_info : UserInfo
         app_authorization(clientId : String!, clientSecret : String!) : Token
         authentication_user(userName : String!, password : String!) : Token
-        get_user_info : UserInfo
         search_restaurants(lat : String!, lng : String!, country : Int!, max : Int, offset: Int, sort : String, count : Int, fields : String) : Restaurants
     },
 
