@@ -55,7 +55,7 @@ const appAuthorization = (args) => {
         fetch(config.URL_BASE + config.URL_GET_TOKEN + toSend).then(data => {
             return data.json()
         }).then(data => {
-    
+            
             if(data.access_token){
                 resolve( {
                     error : false,

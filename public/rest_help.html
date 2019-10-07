@@ -57,49 +57,6 @@
             </div>
 
             <div class="item">
-                <h3>/authentication_user</h3>
-                <h4>Descripción</h4>
-                <p class="description">Endpoint que sirve para realizar el login de usuario.</p>
-                <div class="params">
-                    <h5>Params:</h5>
-                    <ul>
-                        <li>
-                            <span>userName:</span>
-                            <span>xxx</span>
-                        </li>
-                        <li>
-                            <span>password:</span>
-                            <span>xxx</span>
-                        </li>
-                        <li>
-                            <span>header:</span>
-                            <span>{Authorization : Bearer xxxx}</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="params">
-                    <h5>Return 200:</h5>
-                    <code>
-                        {
-                            "error": false,
-                            "message": "Success",
-                            "code": "VALID",
-                            "access_token": "xxx"
-                        }
-                    </code>
-                    <h5>Return 400:</h5>
-                    <code>
-                        {
-                            "error": true,
-                            "message": "security.invalidCredentials",
-                            "code": "INVALID_TOKEN",
-                            "access_token": ""
-                        }
-                    </code>                    
-                </div>
-            </div>
-
-            <div class="item">
                 <h3>/get_user_info</h3>
                 <h4>Descripción</h4>
                 <p class="description">Obtiene la información del usuario logeado mediante el Token.</p>
@@ -148,13 +105,6 @@
                 <p class="description">Pasando coordenasdas devuelve los restaurantes más cercanos.</p>
                 <div class="params">
                     <h5>Params:</h5>
-                    point : req.query.point,
-                    country : req.query.country, 
-                    max : req.query.max, 
-                    offset: req.query.offset, 
-                    sort : req.query.sort, 
-                    count : req.query.count, 
-                    fields : req.query.fields
                     <ul>
                         <li>
                             <span>point:</span>
@@ -206,10 +156,114 @@
                 </div>
             </div>
 
+            <div class="item">
+                <h3>/get_info_admin</h3>
+                <h4>Descripción</h4>
+                <p class="description">Enpoint que retorna el historial de búsquedas y el historial de usuarios logueados.</p>
+                <div class="params">
+                    <h5>Params: (sin parámetros)</h5>
+                </div>
+                <div class="params">
+                    <h5>Return 200:</h5>
+                    <code>
+                        {
+                            "error": false,
+                            "message": {
+                                "history" : [],
+                                "users" : [],
+                                "tiempox" : x
+                            }
+                        }
+                    </code>
+                    <h5>Return 400:</h5>
+                    <code>
+                        {
+                            "error": true,
+                            "message": "Error message",
+                        }
+                    </code>                    
+                </div>
+            </div>
+
         </div>
     
         <div class="wrapper">
             <h2>POSTs</h2>
+
+            <div class="item">
+                <h3>/tiempox</h3>
+                <h4>Descripción</h4>
+                <p class="description">Este endpoint permite cambiar la configuración del Tiempo X del caché.</p>
+                <div class="params">
+                    <h5>Params:</h5>
+                    <ul>
+                        <li>
+                            <span>tiempox:</span>
+                            <span>3 Int required!</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="params">
+                    <h5>Return 200:</h5>
+                    <code>
+                        {
+                            "error": false,
+                            "message": "Tiempo actualizado!"
+                        }
+                    </code>
+                    <h5>Return 400:</h5>
+                    <code>
+                        {
+                            "error": true,
+                            "message": "Ocurrió un error"
+                        }
+                    </code>                    
+                </div>
+            </div>
+
+            <div class="item">
+                <h3>/authentication_user</h3>
+                <h4>Descripción</h4>
+                <p class="description">Endpoint que sirve para realizar el login de usuario.</p>
+                <div class="params">
+                    <h5>Params:</h5>
+                    <ul>
+                        <li>
+                            <span>userName:</span>
+                            <span>xxx</span>
+                        </li>
+                        <li>
+                            <span>password:</span>
+                            <span>xxx</span>
+                        </li>
+                        <li>
+                            <span>header:</span>
+                            <span>{Authorization : Bearer xxxx}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="params">
+                    <h5>Return 200:</h5>
+                    <code>
+                        {
+                            "error": false,
+                            "message": "Success",
+                            "code": "VALID",
+                            "access_token": "xxx"
+                        }
+                    </code>
+                    <h5>Return 400:</h5>
+                    <code>
+                        {
+                            "error": true,
+                            "message": "security.invalidCredentials",
+                            "code": "INVALID_TOKEN",
+                            "access_token": ""
+                        }
+                    </code>                    
+                </div>
+            </div>
+
         </div>
     </div>
 
