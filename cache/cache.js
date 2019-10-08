@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient;
 
 const uri = URL_MONGO;
 
-const client = new MongoClient(uri, { useNewUrlParser: true });
+const client = new MongoClient(uri);
 
 const saveData = (data) => {
 

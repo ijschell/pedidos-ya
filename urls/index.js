@@ -289,11 +289,26 @@ const sendToApi = (res, args, requires, callback, model) => {
 
                     })
 
-                }
-            }
+                    // ok, 200
+                    res.status(200).json(data);
 
-            // ok, 200
-            res.status(200).json(data);        
+                }else{
+
+                    // error, 401
+                    res.status(401).json(data);
+
+                }
+            }else{
+
+                if(!data.error){
+                    // ok, 200
+                    res.status(200).json(data);
+                }else{
+                    // error, 401
+                    res.status(401).json(data);
+                }
+
+            }
 
         }).catch(err => {
 
